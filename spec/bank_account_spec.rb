@@ -27,4 +27,25 @@ describe BankAccount do
         bank_account = BankAccount.new
         expect{bank_account.deposit(-50)}.to raise_exception("You cannot deposit a negative amount")
     end
+
+    it 'has the ability to withdraw amounts' do
+        STARTING_BALANCE = 50
+        bank_account = BankAccount.new(starting_balance: STARTING_BALANCE)
+        expect{bank_account.withdraw(10)}.to change{bank_account.balance}.by(-10)
+    end
+
+    it 'cannot withdraw negative amounts' do
+        bank_account = BankAccount.new
+        expect{bank_account.withdraw(-10)}.to raise_exception("You cannot withdraw a negative amount")
+    end
+
+    it 'cannot withdraw more than the account balance' do
+        bank_account = BankAccount.new
+        expect{bank_account.withdraw(10)}.to raise_exception("You cannot withdraw more than your account balance")
+    end
 end
+
+
+
+
+
