@@ -1,4 +1,5 @@
 require 'bank_account'
+require 'timecop'
 
 describe BankAccount, '.balance' do
     it 'prints an integer balance' do
@@ -47,3 +48,25 @@ describe BankAccount, '#withdraw' do
     end
 end
 
+describe BankAccount, '#check_transactions' do
+    it 'when valid' do
+        bank_account = BankAccount.new
+        expect(bank_account.check_transactions).to be_a_kind_of(Array)
+    end
+
+    it 'displays date of a transaction' do
+        Timecop.freeze
+        bank_account = BankAccount.new
+        bank_account.deposit(10)
+        expect(bank_account.check_transactions[0][:transaction_date]).to eq Time.now
+        Timecop.return
+    end
+
+    it 'contains the transaction type' do
+
+    end
+
+    it 'contains the updated account balance' do
+
+    end
+end
