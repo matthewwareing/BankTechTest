@@ -23,11 +23,7 @@ class BankAccount
         @balance -= amount
     end
 
-    def check_transactions
+    def list_transactions
         @account_statement.transactions
     end
 end
-
-# when i deposit
-# I want a transaction generated
-# and it to be added to my transactions

@@ -11,5 +11,5 @@ describe AccountStatement do
         account_statement.add_transaction({})
         expect(account_statement.transactions).to eq [{}]
     end
-
+    
 end
