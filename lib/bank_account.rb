@@ -9,7 +9,8 @@ class BankAccount
         @balance = account_setup.fetch(:starting_balance, DEFAULT_BALANCE)
         @account_statement = account_setup.fetch(:account_statement, AccountStatement.new)
     end
-
+    # deposit and withdraw should raise errors or pass on the creation of the transaction elsewhere, no balance!
+    # 
     def deposit(amount)
         raise ArgumentError.new("You cannot deposit a negative amount") if amount < 0
         transaction = TransactionGenerator.new(transaction_amount: amount, :transaction_type => :deposit, current_balance: @balance).create
@@ -27,3 +28,5 @@ class BankAccount
         @account_statement.transactions
     end
 end
+ 
+ 

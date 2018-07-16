@@ -10,3 +10,6 @@ class AccountStatement
     end
     
 end
+
+# Does it have one responsibility?
+# to hold the list of transactions !AND! add to them

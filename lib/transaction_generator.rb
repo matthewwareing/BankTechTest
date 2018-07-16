@@ -6,6 +6,7 @@ class TransactionGenerator
         @transaction_type = opts[:transaction_type]
         @current_balance = opts[:current_balance]
     end
+    # separate create into two methods, deposit and withdrawal, therefore removing need for new_balance method
 
     def create
         {transaction_date: Time.now, transaction_amount: @transaction_amount, transaction_type: @transaction_type,
@@ -17,3 +18,6 @@ class TransactionGenerator
         return @current_balance + @transaction_amount if @transaction_type == :deposit
     end
 end
+
+# Does it have one responsibility?
+# It's responsibility is to hold the transaction details !AND! calculate the new balance
