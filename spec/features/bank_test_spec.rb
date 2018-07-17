@@ -11,8 +11,6 @@
 # 13/01/2012 || 2000.00 || || 3000.00
 # 10/01/2012 || 1000.00 || || 1000.00"
 
-
-
 # bank_account = BankAccount.new(account_statement: account_statment, printer: Printer)
 
 # bank_account.deposit(1000)

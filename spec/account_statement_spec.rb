@@ -20,7 +20,6 @@ describe AccountStatement do
   #   Timecop.return
   # end
 
-
   # describe AccountStatement, '#list_transactions' do
   #   it 'when valid' do
   #     bank_account = BankAccount.new

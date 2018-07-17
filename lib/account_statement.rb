@@ -6,8 +6,11 @@ class AccountStatement
   end
 
   def add_transaction(transaction)
-    transaction = Transaction.new(amount: transaction[:amount], 
-      :type => transaction[:type])
+    transaction = Transaction.new(
+      amount: transaction[:amount], 
+      :type => transaction[:type],
+      date: transaction[:date]
+      )
     @transactions << transaction
   end
 

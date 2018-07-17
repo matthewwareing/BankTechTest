@@ -2,11 +2,12 @@ require 'transaction'
 require 'timecop'
 
 describe Transaction do
-
-  it 'adds a date to the transaction' do
+  
+  it 'adds a formatted date to the transaction' do
+    DATE_FORMAT = '%d-%m-%Y'
     Timecop.freeze
     transaction = Transaction.new(date: Time.now)
-    expect(transaction.date).to eq Time.now
+    expect(transaction.date).to eq Time.now.strftime(DATE_FORMAT)
     Timecop.return
   end
 

@@ -13,7 +13,8 @@ class BankAccount
     raise ArgumentError.new("You cannot deposit a negative amount") if amount < 0
     @account_statement.add_transaction(
       amount: amount, 
-      :type => :deposit
+      :type => :deposit,
+      time: Time.now
       )
   end
     
@@ -22,7 +23,8 @@ class BankAccount
     raise ArgumentError.new("You cannot withdraw more than your account balance") if amount > @account_statement.current_balance()
     @account_statement.add_transaction(
       amount: amount,
-      :type => :withdraw
+      :type => :withdraw,
+      time: Time.now
     )
   end
 
@@ -35,5 +37,3 @@ class BankAccount
   end
 
 end
-
-
