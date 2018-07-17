@@ -55,4 +55,5 @@ describe BankAccount, '#balance' do
     bank_account.deposit(10)
     expect(bank_account.balance).to eq 10
   end
+
 end
