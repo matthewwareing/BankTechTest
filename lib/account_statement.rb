@@ -6,19 +6,19 @@ class AccountStatement
   end
 
   def add_transaction(transaction)
-    transaction = Transaction.new(transaction_amount: transaction[:transaction_amount], 
-      :transaction_type => transaction[:transaction_type])
+    transaction = Transaction.new(amount: transaction[:amount], 
+      :type => transaction[:type])
     @transactions << transaction
   end
 
   def current_balance
     sum = 0
     @transactions.each do |transaction|
-      case transaction.transaction_type
+      case transaction.type
         when :deposit 
-          sum += transaction.transaction_amount
+          sum += transaction.amount
         when :withdraw
-          sum -= transaction.transaction_amount
+          sum -= transaction.amount
       end
     end
     sum
