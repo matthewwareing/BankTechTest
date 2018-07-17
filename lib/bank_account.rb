@@ -9,19 +9,19 @@ class BankAccount
 
   def deposit(amount)
     raise ArgumentError.new("You cannot deposit a negative amount") if amount < 0
-    transaction = TransactionGenerator.new(transaction_amount: amount, 
-        :transaction_type => :deposit, 
-        current_balance: @account_statement.current_balance()).create
-    @account_statement.add_transaction(transaction)
+    @account_statement.add_transaction(
+      transaction_amount: amount, 
+      :transaction_type => :deposit
+      )
   end
     
   def withdraw(amount)
     raise ArgumentError.new("You cannot withdraw a negative amount") if amount < 0
     raise ArgumentError.new("You cannot withdraw more than your account balance") if amount > @account_statement.current_balance()
-    transaction = TransactionGenerator.new(transaction_amount: amount, 
-      :transaction_type => :withdraw, 
-      current_balance: @account_statement.current_balance()).create
-    @account_statement.add_transaction(transaction)
+    @account_statement.add_transaction(
+      transaction_amount: amount,
+      :transaction_type => :withdraw
+    )
   end
 
   def balance

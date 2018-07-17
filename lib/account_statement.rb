@@ -6,7 +6,10 @@ class AccountStatement
   end
 
   def add_transaction(transaction)
-    @transactions << transaction 
+    transaction = TransactionGenerator.new(transaction_amount: transaction[:transaction_amount], 
+      :transaction_type => transaction[:transaction_type], 
+      current_balance: current_balance()).create
+    @transactions << transaction
   end  
 
   def current_balance
