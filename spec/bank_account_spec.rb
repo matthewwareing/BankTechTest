@@ -58,4 +58,8 @@ describe BankAccount, '#balance' do
 end
 
 describe BankAccount, "#display_statement" do
+  it 'returns the statement title' do
+    bank_account = BankAccount.new
+    expect(bank_account.display_statement()).to eq "Date | Deposit | Withdrawal | Balance"
+  end
 end

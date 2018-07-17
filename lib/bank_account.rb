@@ -28,4 +28,8 @@ class BankAccount
     @account_statement.current_balance()
   end
 
+  def display_statement
+    "Date | Deposit | Withdrawal | Balance"
+  end
+
 end
