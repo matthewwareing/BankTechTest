@@ -7,24 +7,20 @@ class AccountStatement
 
   def add_transaction(transaction)
     transaction = Transaction.new(transaction_amount: transaction[:transaction_amount], 
-      :transaction_type => transaction[:transaction_type], 
-      current_balance: current_balance()).create
+      :transaction_type => transaction[:transaction_type])
     @transactions << transaction
-  end  
+  end
 
   def current_balance
     sum = 0
     @transactions.each do |transaction|
-      case transaction[:transaction_type]
+      case transaction.transaction_type
         when :deposit 
-          sum += transaction[:transaction_amount]
+          sum += transaction.transaction_amount
         when :withdraw
-          sum -= transaction[:transaction_amount]
+          sum -= transaction.transaction_amount
       end
     end
     sum
   end
 end
-
-# Does it have one responsibility?
-# to hold the list of transactions !AND! add to them
