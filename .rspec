@@ -1,3 +1,3 @@
-rspec spec --format documentation
---color --format documentation
+--format documentation
+--color
 --require spec_helper

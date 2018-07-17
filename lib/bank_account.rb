@@ -1,4 +1,4 @@
-require 'transaction_generator'
+require 'transaction'
 require 'printer'
 
 class BankAccount
@@ -6,7 +6,7 @@ class BankAccount
   
   def initialize(account_setup = {})
     @account_statement = account_setup.fetch(:account_statement, AccountStatement.new)
-    @printer = account_setup.fetch(:account_statement, Printer)
+    @printer = account_setup.fetch(:printer, Printer)
   end
 
   def deposit(amount)
@@ -31,7 +31,9 @@ class BankAccount
   end
 
   def display_statement
-    @printer.column_titles
+    @printer.display_statement(@account_statement.transactions)
   end
 
 end
+
+

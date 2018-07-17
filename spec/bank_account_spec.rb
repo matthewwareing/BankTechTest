@@ -1,4 +1,5 @@
 require 'bank_account'
+require 'account_statement'
 require 'timecop'
 
 describe BankAccount, '.balance' do
@@ -17,8 +18,16 @@ end
 
 describe BankAccount, '#deposit' do
   context 'when valid' do
-    bank_account = BankAccount.new
-    it { expect { bank_account.deposit(20) }.to change { bank_account.balance }.by(20) }
+    it 'a test with mocks' do
+      account_statement = double('account statement')
+      transactions = []    
+      allow(account_statement).to receive(:add_transaction) { transactions }
+  
+      bank_account = BankAccount.new(account_statement: account_statement)
+      # it { expect { bank_account.deposit(20) }.to change { bank_account.balance }.by(20) }
+  
+      expect(bank_account.deposit(20)).to eq transactions
+    end
   end
 
   context 'when negative amount' do

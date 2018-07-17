@@ -1,5 +1,5 @@
 require 'date'
-class TransactionGenerator
+class Transaction
   attr_reader :config, :transaction_amount, :transaction_type, :current_balance
   def initialize(opts = {})
     @transaction_amount = opts[:transaction_amount]
