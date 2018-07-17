@@ -44,15 +44,15 @@ describe BankAccount, '#withdraw' do
   end
 end
 
-describe BankAccount, '#display_balance' do
+describe BankAccount, '#balance' do
   it 'returns the current balance' do
     bank_account = BankAccount.new
-    expect(bank_account.display_balance).to eq 0
+    expect(bank_account.balance).to eq 0
   end
 
   it 'updates the balance after a deposit' do
     bank_account = BankAccount.new
     bank_account.deposit(10)
-    expect(bank_account.display_balance).to eq 10
+    expect(bank_account.balance).to eq 10
   end
 end
