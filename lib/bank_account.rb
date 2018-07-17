@@ -1,10 +1,12 @@
 require 'transaction_generator'
+require 'printer'
 
 class BankAccount
   attr_reader :balance
   
   def initialize(account_setup = {})
     @account_statement = account_setup.fetch(:account_statement, AccountStatement.new)
+    @printer = account_setup.fetch(:account_statement, Printer)
   end
 
   def deposit(amount)
@@ -29,7 +31,7 @@ class BankAccount
   end
 
   def display_statement
-    "Date | Deposit | Withdrawal | Balance"
+    @printer.column_titles
   end
 
 end

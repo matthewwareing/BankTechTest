@@ -5,5 +5,13 @@ class Printer
         "Date | Deposit | Withdrawal | Balance"
     end
 
-    # Time.new.strftime('%d-%m-%Y')
+    def self.row data
+        data.join(" | ")
+    end
+
+    def self.format data
+        data[0] = data[0].strftime('%d-%m-%Y')
+        data[-1] = "£#{data[-1]}"
+        
+    end
 end
