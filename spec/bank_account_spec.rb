@@ -13,11 +13,6 @@ describe BankAccount, '.balance' do
     expect(bank_account.balance).to eq DEFAULT_BALANCE
   end
 
-  it 'has a configurable default balance' do
-    STARTING_BALANCE = 20
-    bank_account = BankAccount.new(starting_balance: STARTING_BALANCE)
-    expect(bank_account.balance).to eq STARTING_BALANCE
-  end    
 end
 
 describe BankAccount, '#deposit' do
@@ -43,7 +38,8 @@ describe BankAccount, '#withdraw' do
   end
   it 'when valid' do
     starting_balance = 50
-    bank_account = BankAccount.new(starting_balance: starting_balance)
+    bank_account = BankAccount.new
+    bank_account.deposit(10)
     expect { bank_account.withdraw(10) }.to change { bank_account.balance }.by(-10)
   end
 end
@@ -63,10 +59,27 @@ describe BankAccount, '#list_transactions' do
   end
 
   it 'contains the transaction type' do
-
+    bank_account = BankAccount.new
+    bank_account.deposit(10)
+    expect(bank_account.list_transactions[0][:transaction_type]).to eq :deposit
   end
 
   it 'contains the updated account balance' do
+    bank_account = BankAccount.new
+    bank_account.deposit(10)
+    expect(bank_account.list_transactions[0][:new_account_balance]).to eq 10
+  end
+end
 
+describe BankAccount, '#display_balance' do
+  it 'returns the current balance' do
+    bank_account = BankAccount.new
+    expect(bank_account.display_balance).to eq 0
+  end
+
+  it 'updates the balance after a deposit' do
+    bank_account = BankAccount.new
+    bank_account.deposit(10)
+    expect(bank_account.display_balance).to eq 10
   end
 end
