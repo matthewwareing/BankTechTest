@@ -7,17 +7,16 @@ class AccountStatement
 
   def add_transaction(transaction)
     @transactions << transaction 
-  end
-  
+  end  
 
   def current_balance
     sum = 0
     @transactions.each do |transaction|
-       if transaction[:transaction_type] == :deposit
+      if transaction[:transaction_type] == :deposit
         sum += transaction[:transaction_amount]
-       elsif transaction[:transaction_type] == :withdraw
+      elsif transaction[:transaction_type] == :withdraw
         sum -= transaction[:transaction_amount]
-       end
+      end
     end
     sum
   end
