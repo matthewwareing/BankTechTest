@@ -1,21 +1,35 @@
 <a href="https://codeclimate.com/github/mdwareing/BankTechTest/maintainability"><img src="https://api.codeclimate.com/v1/badges/28792e9023d5189da62b/maintainability" /></a>
 
-Requirements
+# Instructions
+1. Clone this repository into the terminal and run `bundle` to ensure all dependencies are installed.
+2. Enter pry to access a terminal with all files required.
+3. Create an account - e.g. `my_account = BankAccount.new`
+4. Add a transaction - e.g. `my_account.deposit(100)`
+4. Add another transaction - e.g. `my_account.withdraw(50)`
+5. Print a statement - e.g. `my_account.display_statement`
 
-You should be able to interact with your code via a REPL like IRB or the JavaScript console. (You don't need to implement a command line interface that takes input from STDIN.)
+## User stories:
+```
+As a user
+So that I can add money to my account,
+I can make a deposit.
+```
 
-Deposits, withdrawal.
+```
+As a user
+So that I can spend money,
+I can make a withdrawal.
+```
 
-Account statement (date, amount, balance) printing.
-Data can be kept in memory (it doesn't need to be stored to a database or anything).
+```
+As a user
+So that I can see my bank account transactions ordered on the page,
+I can print a statement of my transactions with the date, amount and balance.
+```
 
-Acceptance criteria
-Given a client makes a deposit of 1000 on 10-01-2012
-And a deposit of 2000 on 13-01-2012
-And a withdrawal of 500 on 14-01-2012
-When she prints her bank statement
-Then she would see
-date || credit || debit  || balance
-14/01/2012 || || 500.00  || 2500.00
-13/01/2012 || 2000.00 || || 3000.00
-10/01/2012 || 1000.00 || || 1000.00
+## My Process
+
+## Refactoring
+
+## User Experience
+add photo here
