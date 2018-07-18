@@ -1,3 +1,5 @@
+<a href="https://codeclimate.com/github/mdwareing/BankTechTest/maintainability"><img src="https://api.codeclimate.com/v1/badges/28792e9023d5189da62b/maintainability" /></a>
+
 Requirements
 
 You should be able to interact with your code via a REPL like IRB or the JavaScript console. (You don't need to implement a command line interface that takes input from STDIN.)
