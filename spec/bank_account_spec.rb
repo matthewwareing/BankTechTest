@@ -45,7 +45,6 @@ describe BankAccount, '#withdraw' do
     expect { bank_account.withdraw(-10) }.to raise_exception("You cannot withdraw a negative amount")
   end
   it 'when valid' do
-    starting_balance = 50
     bank_account = BankAccount.new
     bank_account.deposit(10)
     expect { bank_account.withdraw(10) }.to change { bank_account.balance }.by(-10)
@@ -67,7 +66,9 @@ end
 
 describe BankAccount, "#display_statement" do
   it 'returns the statement title' do
+    Timecop.freeze
     bank_account = BankAccount.new
-    expect(bank_account.display_statement()).to eq "Date | Deposit | Withdrawal | Balance"
+    bank_account.deposit(10)
+    expect(bank_account.display_statement()).to eq ["Date | Deposit | Withdrawal | Balance", "#{Time.now.strftime('%d-%m-%Y')} | 10 | current balance"]
   end
 end

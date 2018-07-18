@@ -34,7 +34,7 @@ class BankAccount
     @account_statement.add_transaction(
       amount: params[:amount], 
       :type => params[:type],
-      time: params.fetch(:time, Time.now)
+      date: params.fetch(:time, Time.now)
       )
   end
 
