@@ -23,9 +23,8 @@ describe BankAccount, '#deposit' do
       transactions = []    
       allow(account_statement).to receive(:add_transaction) { transactions }
   
-      bank_account = BankAccount.new(account_statement: account_statement)
-      # it { expect { bank_account.deposit(20) }.to change { bank_account.balance }.by(20) }
-  
+      bank_account = BankAccount.new(account_statement: account_statement)  
+      
       expect(bank_account.deposit(20)).to eq transactions
     end
   end
