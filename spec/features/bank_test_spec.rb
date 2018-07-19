@@ -8,9 +8,9 @@ describe 'a user can deposit and withdraw funds' do
 
         beautiful_set_of_transactions = "
         \nDate | Deposit | Withdrawal | Balance\n
-        \n19-07-2018 | 100 | current balance\n
-        \n19-07-2018 | 40 | current balance\n
-        \n19-07-2018 | 3 | current balance\n"
+        \n19-07-2018 | 100 | 100\n
+        \n19-07-2018 | 40 | 60\n
+        \n19-07-2018 | 3 | 63\n"
         
         bank_account = BankAccount.new
         bank_account.deposit(100)

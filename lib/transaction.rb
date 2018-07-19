@@ -7,10 +7,15 @@ class Transaction
     @amount = opts[:amount]
     @type = opts[:type]
     @date = opts[:date]
+    @account = opts[:account]
   end
 
   def date
     @date.strftime(DATE_FORMAT)
+  end
+
+  def running_total
+    @account.running_total(self)
   end
   
 end

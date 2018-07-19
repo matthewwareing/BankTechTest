@@ -22,7 +22,7 @@ class BankAccount
   end
   
   def balance
-    @account_statement.current_balance()
+    @account_statement.current_balance
   end
 
   def display_statement

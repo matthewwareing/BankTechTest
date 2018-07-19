@@ -14,7 +14,7 @@ class Printer
   end
 
   def self.row transaction
-    "#{transaction.date} | #{transaction.amount} | current balance"
+    "#{transaction.date} | #{transaction.amount} | #{transaction.running_total}"
   end
 
 end

@@ -11,8 +11,11 @@ end
 describe Printer, '.row' do
   it 'formats column data into row' do
     Timecop.freeze
-    transaction = Transaction.new(date: Time.now, amount: 20)
-    expect(Printer.row(transaction)).to eq "#{Time.now.strftime('%d-%m-%Y')} | 20 | current balance"
+    account_statement = double('account statement')
+    total = 20
+    allow(account_statement).to receive(:running_total) { 20 }
+    transaction = Transaction.new(date: Time.now, amount: 20, account: account_statement)
+    expect(Printer.row(transaction)).to eq "#{Time.now.strftime('%d-%m-%Y')} | 20 | 20"
     Timecop.return
   end
 end
