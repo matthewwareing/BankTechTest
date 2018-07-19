@@ -12,5 +12,5 @@ class Transaction
   def date
     @date.strftime(DATE_FORMAT)
   end
-
+  
 end

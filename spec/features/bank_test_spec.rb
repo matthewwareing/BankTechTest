@@ -1,18 +1,21 @@
-# 1. require all the source files
-# 2. use rspec to create a test that 
+# require 'printer'
+# require 'transaction'
+# require 'account_statement'
+require 'bank_account'
 
-# - instantiates the right objects
-# - acts as a user
+describe 'a user can deposit and withdraw funds' do
+    it 'can print updated statement' do
 
-# assert 
-
-# "date || credit || debit || balance
-# 14/01/2012 || || 500.00 || 2500.00
-# 13/01/2012 || 2000.00 || || 3000.00
-# 10/01/2012 || 1000.00 || || 1000.00"
-
-# bank_account = BankAccount.new(account_statement: account_statment, printer: Printer)
-
-# bank_account.deposit(1000)
-# bank_account.withdraw(1000)
-# expect(bank_account.display_statment).to eq()
+        beautiful_set_of_transactions = "
+        \nDate | Deposit | Withdrawal | Balance\n
+        \n19-07-2018 | 100 | current balance\n
+        \n19-07-2018 | 40 | current balance\n
+        \n19-07-2018 | 3 | current balance\n"
+        
+        bank_account = BankAccount.new
+        bank_account.deposit(100)
+        bank_account.withdraw(40)
+        bank_account.deposit(3)
+        expect{bank_account.display_statement}.to output(beautiful_set_of_transactions).to_stdout
+    end
+end

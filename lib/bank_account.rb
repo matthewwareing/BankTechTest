@@ -1,5 +1,6 @@
-require 'transaction'
-require 'printer'
+require_relative 'transaction'
+require_relative 'printer'
+require_relative 'account_statement'
 
 class BankAccount
   attr_reader :balance

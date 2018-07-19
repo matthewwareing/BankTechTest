@@ -66,9 +66,10 @@ end
 
 describe BankAccount, "#display_statement" do
   it 'returns the statement title' do
-    Timecop.freeze
-    bank_account = BankAccount.new
-    bank_account.deposit(10)
-    expect(bank_account.display_statement()).to eq ["Date | Deposit | Withdrawal | Balance", "#{Time.now.strftime('%d-%m-%Y')} | 10 | current balance"]
+    printer = double('printer')
+    account_data = []
+    allow(printer).to receive(:display_statement) { account_data }
+    bank_account = BankAccount.new(printer: printer)
+    expect(bank_account.display_statement).to eq account_data
   end
 end
