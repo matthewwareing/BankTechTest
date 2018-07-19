@@ -32,4 +32,5 @@ I can print a statement of my transactions with the date, amount and balance.
 ## Refactoring
 
 ## User Experience
-add photo here
+
+![](https://github.com/mdwareing/BankTechTest/blob/master/Screen%20Shot%202018-07-19%20at%2010.12.16.png)
